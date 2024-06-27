@@ -1,1 +1,15 @@
-spring.application.name=clickbus
+server:
+  port: 8080
+
+spring:
+  application:
+    name: clickbus
+
+  data:
+    mongodb:
+      authenticationDatabase: admin
+      username: root
+      password: 12345
+      database: clickbus
+      port: 27017
+      host: localhost
