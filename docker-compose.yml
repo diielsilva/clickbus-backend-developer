@@ -1,0 +1,30 @@
+services:
+  mongodb:
+    container_name: mongodb_server
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 12345
+    networks:
+      - clickbus_net
+
+  mongo_express:
+    container_name: mongo_express
+    image: mongo-express:latest
+    restart: on-failure
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: 12345
+      ME_CONFIG_MONGODB_URL: mongodb://root:12345@mongodb:27017/
+      ME_CONFIG_BASICAUTH: true
+    networks:
+      - clickbus_net
+
+
+networks:
+  clickbus_net:
+    driver: bridge
