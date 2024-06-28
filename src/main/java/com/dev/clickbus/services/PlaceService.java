@@ -61,6 +61,24 @@ public class PlaceService {
         return mapper.toResponse(place);
     }
 
+    public PlaceResponse update(String id, PlaceRequest request) {
+        Place place = repository
+                .findById(id)
+                .orElseThrow(()-> new PlaceNotFoundException(String.format("Place: %s not found!", id)));
+
+        String slug = slugGen.getByPlaceName(request.name());
+
+        place.setName(request.name());
+        place.setSlug(slug);
+        place.setCity(request.city());
+        place.setState(request.state());
+        place.setUpdatedAt(LocalDateTime.now());
+
+        repository.save(place);
+
+        return mapper.toResponse(place);
+    }
+
     public void delete(String id) {
         Place place = repository
                 .findById(id)

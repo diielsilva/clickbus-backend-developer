@@ -42,6 +42,13 @@ public class PlaceController {
                 .ok(response);
     }
 
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<PlaceResponse> update(@PathVariable String id, @RequestBody @Valid PlaceRequest request) {
+        PlaceResponse response = service.update(id, request);
+        return ResponseEntity
+                .ok(response);
+    }
+
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable String id) {
         service.delete(id);
