@@ -61,4 +61,12 @@ public class PlaceService {
         return mapper.toResponse(place);
     }
 
+    public void delete(String id) {
+        Place place = repository
+                .findById(id)
+                .orElseThrow(()-> new PlaceNotFoundException(String.format("Place: %s not found!", id)));
+
+        repository.delete(place);
+    }
+
 }
