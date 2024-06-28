@@ -9,6 +9,7 @@ import com.dev.clickbus.utils.SlugGenerator;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class PlaceService {
@@ -33,6 +34,22 @@ public class PlaceService {
         repository.save(place);
 
         return mapper.toResponse(place);
+    }
+
+    public List<PlaceResponse> findAll(String filter) {
+        List<Place> places = repository.findAll();
+
+        if (filter != null) {
+            places = places
+                    .stream()
+                    .filter(place -> place.getName().contains (filter))
+                    .toList();
+        }
+
+        return places
+                .stream()
+                .map(mapper::toResponse)
+                .toList();
     }
 
 }
