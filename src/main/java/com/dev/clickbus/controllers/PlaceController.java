@@ -30,9 +30,16 @@ public class PlaceController {
 
     @GetMapping
     public ResponseEntity<List<PlaceResponse>> findAll(@RequestParam(required = false) String filter) {
-        List<PlaceResponse> responses = service.findAll(filter);
+        List<PlaceResponse> response = service.findAll(filter);
         return ResponseEntity
-                .ok(responses);
+                .ok(response);
+    }
+
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<PlaceResponse> findById(@PathVariable String id) {
+        PlaceResponse response = service.findById(id);
+        return ResponseEntity
+                .ok(response);
     }
 
 }

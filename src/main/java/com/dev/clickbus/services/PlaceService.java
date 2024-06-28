@@ -2,6 +2,7 @@ package com.dev.clickbus.services;
 
 import com.dev.clickbus.dtos.PlaceRequest;
 import com.dev.clickbus.dtos.PlaceResponse;
+import com.dev.clickbus.exceptions.PlaceNotFoundException;
 import com.dev.clickbus.mappers.ModelMapper;
 import com.dev.clickbus.models.Place;
 import com.dev.clickbus.repositories.PlaceRepository;
@@ -50,6 +51,14 @@ public class PlaceService {
                 .stream()
                 .map(mapper::toResponse)
                 .toList();
+    }
+
+    public PlaceResponse findById(String id) {
+        Place place = repository
+                .findById(id)
+                .orElseThrow(()-> new PlaceNotFoundException(String.format("Place: %s not found!", id)));
+
+        return mapper.toResponse(place);
     }
 
 }
