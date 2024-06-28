@@ -7,9 +7,5 @@ spring:
 
   data:
     mongodb:
-      authenticationDatabase: admin
-      username: root
-      password: 12345
-      database: clickbus
-      port: 27017
-      host: localhost
+      uri: mongodb://root:12345@localhost:27017/clickbus?authSource=admin
+      autoIndexCreation: true
