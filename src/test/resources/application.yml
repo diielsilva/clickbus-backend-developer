@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: clickbus
+
+  data:
+    mongodb:
+      uri: mongodb://root:12345@localhost:27017/clickbus?authSource=admin
+      autoIndexCreation: true
