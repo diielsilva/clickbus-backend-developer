@@ -7,5 +7,5 @@ spring:
 
   data:
     mongodb:
-      uri: mongodb://root:12345@localhost:27017/clickbus?authSource=admin
+      uri: mongodb://root:12345@mongodb_server:27017/clickbus?authSource=admin
       autoIndexCreation: true
