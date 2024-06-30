@@ -1,4 +1,4 @@
-package com.dev.clickbus.dtos;
+package com.dev.clickbus.common.dtos;
 
 import java.time.LocalDateTime;
 

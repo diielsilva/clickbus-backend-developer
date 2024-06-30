@@ -1,7 +1,7 @@
-package com.dev.clickbus.handlers;
+package com.dev.clickbus.web.handlers;
 
-import com.dev.clickbus.dtos.ErrorResponse;
-import com.dev.clickbus.exceptions.PlaceNotFoundException;
+import com.dev.clickbus.common.dtos.ErrorResponse;
+import com.dev.clickbus.domain.exceptions.PlaceNotFoundException;
 import com.mongodb.MongoWriteException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

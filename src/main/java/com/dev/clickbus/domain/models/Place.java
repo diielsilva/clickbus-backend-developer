@@ -1,4 +1,4 @@
-package com.dev.clickbus.models;
+package com.dev.clickbus.domain.models;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;

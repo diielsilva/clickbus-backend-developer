@@ -1,8 +1,8 @@
-package com.dev.clickbus.controllers;
+package com.dev.clickbus.web.controllers;
 
-import com.dev.clickbus.dtos.PlaceRequest;
-import com.dev.clickbus.dtos.PlaceResponse;
-import com.dev.clickbus.services.PlaceService;
+import com.dev.clickbus.common.dtos.PlaceRequest;
+import com.dev.clickbus.common.dtos.PlaceResponse;
+import com.dev.clickbus.domain.services.PlaceService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

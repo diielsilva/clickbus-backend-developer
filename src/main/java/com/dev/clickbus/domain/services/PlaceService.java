@@ -1,12 +1,12 @@
-package com.dev.clickbus.services;
+package com.dev.clickbus.domain.services;
 
-import com.dev.clickbus.dtos.PlaceRequest;
-import com.dev.clickbus.dtos.PlaceResponse;
-import com.dev.clickbus.exceptions.PlaceNotFoundException;
-import com.dev.clickbus.mappers.ModelMapper;
-import com.dev.clickbus.models.Place;
-import com.dev.clickbus.repositories.PlaceRepository;
-import com.dev.clickbus.utils.SlugGenerator;
+import com.dev.clickbus.common.dtos.PlaceRequest;
+import com.dev.clickbus.common.dtos.PlaceResponse;
+import com.dev.clickbus.common.mappers.ModelMapper;
+import com.dev.clickbus.common.utils.SlugGenerator;
+import com.dev.clickbus.domain.exceptions.PlaceNotFoundException;
+import com.dev.clickbus.domain.models.Place;
+import com.dev.clickbus.domain.repositories.PlaceRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -43,7 +43,7 @@ public class PlaceService {
         if (filter != null) {
             places = places
                     .stream()
-                    .filter(place -> place.getName().contains (filter))
+                    .filter(place -> place.getName().contains(filter))
                     .toList();
         }
 
@@ -56,7 +56,7 @@ public class PlaceService {
     public PlaceResponse findById(String id) {
         Place place = repository
                 .findById(id)
-                .orElseThrow(()-> new PlaceNotFoundException(String.format("Place: %s not found!", id)));
+                .orElseThrow(() -> new PlaceNotFoundException(String.format("Place: %s not found!", id)));
 
         return mapper.toResponse(place);
     }
@@ -64,7 +64,7 @@ public class PlaceService {
     public PlaceResponse update(String id, PlaceRequest request) {
         Place place = repository
                 .findById(id)
-                .orElseThrow(()-> new PlaceNotFoundException(String.format("Place: %s not found!", id)));
+                .orElseThrow(() -> new PlaceNotFoundException(String.format("Place: %s not found!", id)));
 
         String slug = slugGen.getByPlaceName(request.name());
 
@@ -82,7 +82,7 @@ public class PlaceService {
     public void delete(String id) {
         Place place = repository
                 .findById(id)
-                .orElseThrow(()-> new PlaceNotFoundException(String.format("Place: %s not found!", id)));
+                .orElseThrow(() -> new PlaceNotFoundException(String.format("Place: %s not found!", id)));
 
         repository.delete(place);
     }

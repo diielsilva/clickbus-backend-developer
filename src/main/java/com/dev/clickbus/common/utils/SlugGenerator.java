@@ -1,4 +1,4 @@
-package com.dev.clickbus.utils;
+package com.dev.clickbus.common.utils;
 
 import org.springframework.stereotype.Component;
 

@@ -1,8 +1,8 @@
-package com.dev.clickbus.mappers;
+package com.dev.clickbus.common.mappers;
 
-import com.dev.clickbus.dtos.PlaceRequest;
-import com.dev.clickbus.dtos.PlaceResponse;
-import com.dev.clickbus.models.Place;
+import com.dev.clickbus.common.dtos.PlaceRequest;
+import com.dev.clickbus.common.dtos.PlaceResponse;
+import com.dev.clickbus.domain.models.Place;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -27,6 +27,5 @@ public class ModelMapper {
                 place.getUpdatedAt()
         );
     }
-
 
 }

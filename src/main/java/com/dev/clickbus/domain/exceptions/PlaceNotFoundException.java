@@ -1,4 +1,4 @@
-package com.dev.clickbus.exceptions;
+package com.dev.clickbus.domain.exceptions;
 
 public class PlaceNotFoundException extends RuntimeException {
 
