@@ -16,7 +16,7 @@ CRUD relacionada a lugares.
 Para executar esse projeto, é necessário possui o Docker instalado.
 
 1. Clone o repositório e abra seu terminal na pasta raiz.
-2. Execute o comando "docker image build -t . clickbus:1.0".
+2. Execute o comando "docker image build . -t clickbus:1.0".
 3. Após a imagem ser montada, basta executar o comando "docker compose up -d".
 
 ### Endpoints
